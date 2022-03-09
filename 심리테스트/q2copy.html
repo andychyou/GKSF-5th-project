@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+  <style type="text/css">
+    @import url("제발_css.css");
+  </style>
+  <script>
+    var queryString = decodeURIComponent(window.location.search);
+    queryString = queryString.substring(1);
+    var p_ary = queryString.split(",");
+    p_ary[0] = p_ary[0].split("=")[1];
+
+    function f2_1(){
+      for(i=9; i<12; i++){
+        p_ary[i] = Number(p_ary[i])
+        p_ary[i] += 20;
+      }
+      var queryString = "?p_ary=" + p_ary;
+      window.location.href = "q3copy.html" + queryString;
+    }
+
+
+    function f2_2(){
+      for(i=0; i<9; i++){
+        p_ary[i] = Number(p_ary[i])
+        p_ary[i] += 10;
+      }
+      var queryString = "?p_ary=" + p_ary;
+      window.location.href = "q3copy.html" + queryString;
+    }
+  </script>
+  <div class="qustion-box">
+    <h3 class="question-text">
+      Q2. 당신은 힘들 때 이민을 가고 싶나요?
+    </h3>
+  </div>
+  <form name="fm" action="" method="post">
+  <div class="btn-group" >
+    <button type='button' class="button" name = 'q2' value='yes' onClick='f2_1()'/>네
+    <button type='button' class="button" name = 'q2' value='no' onClick='f2_2()'/>아니요
+  </div>
+  </form>
+</html>

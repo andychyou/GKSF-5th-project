@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title심리테스트/>
+    <script>
+      function getperson(){
+        /* 독립운동가들 순서
+                              여성/무장 여성,소통 여성,외교 사회,통찰 사회,무장 사회,소통 재외,소통     재외,소통 재외,외교 외국,무장   외국,통찰   외국,외교*/
+        var p_list = new Array('남자현', '김순애', '방순희', '조동호','김명시','권오설','김 알렉산드라','임천택','한시대','후세 다츠지','스코필드','조지 루이스 쇼');
+
+        // 독립운동가들 배열
+        var p_ary = new Array(12).fill(0);
+
+        // 선택한 답들의 배열
+        var ary = new Array();
+        ary[0] = document.fm.q1
+        ary[1] = document.fm.q2
+        ary[2] = document.fm.q3
+        ary[3] = document.fm.q4
+        ary[4] = document.fm.q5
+        ary[5] = document.fm.q6
+
+        //Q1
+        if (ary[0].value == "domestic"){
+          //남자현은 p_ary[0]이니깐
+          for(i=0; i< 6 ; i++){
+            p_ary[i] += 30;
+          }
+        }
+        else{
+          for(i=6; i< 12 ; i++){
+            p_ary[i] += 30;
+          }
+        }
+        //Q2
+        if (ary[1].value == "yes"){
+          for(i=9; i<12; i++){
+            p_ary[i] += 20;
+          }
+        }
+        else{
+          for(i=0; i<9; i++){
+            p_ary[i] += 10;
+          }
+        }
+        //Q3
+        if (ary[2].value == "yes"){
+          for(i=9; i<12; i++){
+            p_ary[i] += 20
+          }
+        }
+        else{
+          for(i=0; i<9; i++){
+            p_ary[i] += 10
+          }
+        }
+        //Q4
+        if (ary[3].value == "economics"){
+          for(i=3; i<6; i++){
+            p_ary[i] += 15
+          }
+        }
+        else{
+          for(i=0; i<3; i++){
+            p_ary[i] += 15
+          }
+          for(i=6; i<12; i++){
+            p_ary[i] += 15
+          }
+        }
+        //Q5
+        if (ary[4].value == "fight"){
+          p_ary[0] += 20;
+          p_ary[4] += 20;
+          p_ary[9] += 20;
+        }
+        else if (ary[4].value == "edu"){
+          p_ary[1] += 20;
+          p_ary[5] += 20;
+          p_ary[6] += 20;
+          p_ary[7] += 20;
+        }
+        else if (ary[4].value == "diplo"){
+          p_ary[2] += 20;
+          p_ary[8] += 20;
+          p_ary[11] += 20;
+        }
+        else {
+          p_ary[3] += 20;
+          p_ary[10] += 20;
+        }
+        //Q6
+        if (ary[5].value == "green"){
+          p_ary[0] += 20;
+          p_ary[1] += 20;
+          p_ary[11] += 20;
+        }
+        else if (ary[5].value == "white"){
+          p_ary[4] += 20;
+        }
+        else if (ary[5].value == "blue"){
+          p_ary[2] += 20;
+          p_ary[3] += 20;
+          p_ary[6] += 20;
+          p_ary[10] += 20;
+        }
+        else if (ary[5].value == "orange"){
+          p_ary[7] += 20;
+          p_ary[8] += 20;
+          p_ary[9] += 20;
+        }
+        else {
+          p_ary[5] += 20;
+        }
+        //최대값을 구하는 것
+        var max = -1;
+        var max_index = -1;
+        for (var x = 0; x<12; x++){
+          if (p_ary[x] > max){
+            max = p_ary[x];
+            max_index = x;
+          }
+        }
+        var answer_string1 = '당신은 '
+        var answer_string2 = ' 입니다'
+        var answer_string = answer_string1.concat(p_list[max_index],answer_string2);
+        return alert(answer_string);
+        var s1 = p_list[max_index];
+        var htmlfile = s1.concat('.html');
+        //return openwindow.open(htmlfile);
+      }
+    </script>
+  </head>
+  <body>
+    <form name="fm" action="" method="post">
+      <p>Q1. 당신은 독립운동을 했다면 어디서 했을 것 같나요?</p>
+      <p>
+        <input type="button" name="q1" value="domestic" /> 국내
+        <input type="button" name="q1" value="foreign" /> 해외
+      </p>
+      <p>Q2. 나는 외국인이었어도 한국의 독립운동을 도왔을 거 같다</p>
+      <p>
+        <input type="radio" name="q2" value="yes" /> 네
+        <input type="radio" name="q2" value="no" /> 아니요
+      </p>
+      <p>Q3. "재외국민 질문</p>
+      <p>
+        <input type="radio" name="q3" value="yes" /> 네
+        <input type="radio" name="q3" value="no" /> 아니요
+      </p>
+      <p>Q4. 나는 둘 중 이 문제에 더 관심이 있다</p>
+      <p>
+        <input type="radio" name="q4" value="economics" /> 경제문제
+        <input type="radio" name="q4" value="women" /> 여성문제
+      </p>
+      <p>Q5. "독립운동의 성격"</p>
+      <p>
+        <input type="radio" name="q5" value="fight" /> 무장투쟁
+        <input type="radio" name="q5" value="edu" /> 소통,교육,사람들을 이끎
+        <input type="radio" name="q5" value="diplo" /> 외교,이동수단,자금조달
+        <input type="radio" name="q5" value="insight" /> 통찰력,정의의 눈
+      </p>
+      <p>Q6. 당신을 대표하는 색을 고른다면?</p>
+      <p>
+        <input type="radio" name="q6" value="green" /> 민트,초록
+        <input type="radio" name="q6" value="white" /> 흰색
+        <input type="radio" name="q6" value="blue" /> 파랑,하늘
+        <input type="radio" name="q6" value="orange" /> 주황,갈색
+        <input type="radio" name="q6" value="red" /> 빨강
+      </p>
+    </form>
+    <p>
+      <p/>
+     <input type="button" value="저장" onClick="getperson()">
+   </p>
+  </body>
+</html>
