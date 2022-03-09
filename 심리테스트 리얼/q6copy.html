@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style type="text/css">
+      @import url("제발_css.css");
+    </style>
+    <script>
+      var queryString = decodeURIComponent(window.location.search);
+      queryString = queryString.substring(1);
+      var p_ary = queryString.split(",");
+      p_ary[0] = p_ary[0].split("=")[1];
+
+      for(i=0 ; i< 12 ; i++){
+        p_ary[i] = Number(p_ary[i]);
+      }
+
+      function f6_1(){
+        p_ary[0] += 20;
+        p_ary[1] += 20;
+        p_ary[11] += 20;
+        it = get_max();
+        person = it[0];
+        max = it[1];
+        var queryString = "?max=" + max;
+        point_to_person(person, queryString);
+      }
+
+
+      function f6_2(){
+        p_ary[4] += 20;
+        it = get_max();
+        person = it[0];
+        max = it[1];
+        var queryString = "?max=" + max;
+        point_to_person(person, queryString);
+      }
+
+      function f6_3(){
+        p_ary[2] += 20;
+        p_ary[3] += 20;
+        p_ary[6] += 20;
+        p_ary[10] += 20;
+        it = get_max();
+        person = it[0];
+        max = it[1];
+        var queryString = "?max=" + max;
+        point_to_person(person, queryString);
+      }
+
+      function f6_4(){
+        p_ary[7] += 20;
+        p_ary[8] += 20;
+        p_ary[9] += 20;
+        it = get_max();
+        person = it[0];
+        max = it[1];
+        var queryString = "?max=" + max;
+        point_to_person(person, queryString);
+      }
+
+      function f6_5(){
+        p_ary[5] += 20;
+        it = get_max();
+        person = it[0];
+        max = it[1];
+        var queryString = "?max=" + max;
+        point_to_person(person, queryString);
+      }
+
+      function get_max(){
+        max = 0;
+        max_index = 0;
+        for (x=0 ; x<12 ; x++){
+          if (max<p_ary[x]){
+            max = p_ary[x];
+            max_index = x;
+          }
+        }
+        return [max_index, max];
+      }
+
+      function point_to_person(person, queryString){
+        if (person == 0){
+          window.location.href = "0p.html"+queryString;
+        }
+
+        else if (person == 1) {
+          window.location.href = "1p.html"+queryString;
+        }
+
+        else if (person == 2) {
+          window.location.href = "2p.html"+queryString;
+        }
+
+        else if (person == 3) {
+          window.location.href = "3p.html"+queryString;
+        }
+
+        else if (person == 4) {
+          window.location.href = "4p.html"+queryString;
+        }
+
+        else if (person == 5) {
+          window.location.href = "5p.html"+queryString;
+        }
+
+        else if (person == 6) {
+          window.location.href = "6p.html"+queryString;
+        }
+
+        else if (person == 7) {
+          window.location.href = "7p.html"+queryString;
+        }
+
+        else if (person == 8) {
+          window.location.href = "8p.html"+queryString;
+        }
+
+        else if (person == 9) {
+          window.location.href = "9p.html"+queryString;
+        }
+
+        else if (person == 10) {
+          window.location.href = "10p.html"+queryString;
+        }
+
+        else if (person == 11) {
+          window.location.href = "11p.html"+queryString;
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="qustion-box">
+      <h3 class="question-text">
+        Q6. 당신에게 제일 어울리는 색갈은?
+      </h3>
+    </div>
+    <form name="fm" action="" method="post">
+    <div class="btn-group" >
+      <button type='button' class="button" name = 'q6' value='one' onClick='f6_1()'/>민트, 초록
+      <button type='button' class="button" name = 'q6' value='two' onClick='f6_2()'/>흰색
+      <button type='button' class="button" name = 'q6' value='three' onClick='f6_3()'/>파랑, 하늘
+      <button type='button' class="button" name = 'q6' value='four' onClick='f6_4()'/>주황, 갈색
+      <button type='button' class="button" name = 'q6' value='five' onClick='f6_5()'/>빨강
+    </div>
+    </form>
+  </body>
+</html>
