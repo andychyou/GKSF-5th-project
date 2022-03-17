@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style type="text/css">
+    body {
+      background-color:	#101018;
+      font-family: si;
+    }
+    @font-face {
+      font-family: 'si';
+      src: url(../static/DX시인과나.ttf) format('truetype');
+    }
+    .button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #c8c8c8;
+    border: none;
+    color: #101010;
+    text-align: center;
+    font-size: 40px;
+    font-family: si;
+    padding: 15px;
+    width: 40%;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    top: 200px;
+    }
+
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    }
+
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+    }
+
+  .button:hover span {
+    padding-right: 25px;
+    }
+
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+    }
+
+    .qustion-box {
+      height: 120px;
+      width: 700px;
+      left: 10px;
+      margin: 80px auto;
+      background-color: #101018;
+      border-radius: 20px;
+      /*border: 3px solid black;*/
+      position: relative;
+    }
+
+    .question-text {
+      margin:0;
+      padding:0;
+      font-size: 50px;
+      color: white;
+      text-align: center;
+      display: block;
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+      top: 26%;
+    }
+
+
+    </style>
+
+    <script>
+      function go(){
+        window.location.href = '/q1'
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="qustion-box">
+      <h3 class="question-text">
+        나는 어떤 독립운동가였을까?
+      </h3>
+    </div>
+    <div style="text-align: center; font-size: 20px; color: white; position: relative; top: 80px;">
+      <h2>
+        이 심리테스트는 나의 성향과 잘 맞는 독립운동가를 찾아보는 심리테스트입니다.<br>
+        이를 통해 잊혀진 영웅들의 삶에 조금 더 가까이 다가가고,<br>
+        이 부스를 나가실 때 적어도 한 명의 독립운동가라도 여러분들이 기억하셨으면 좋겠습니다.
+      </h2>
+    </div>
+    <button class="button" style="vertical-align:middle" onclick=go()>
+      <span>테스트 시작!</span>
+    </button>
+  </body>
+</html>

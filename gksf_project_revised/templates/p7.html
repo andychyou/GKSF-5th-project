@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      @import url("../static/outputstyle.css");
+    </style>
+
+    <script>
+      var queryString = decodeURIComponent(window.location.search);
+      queryString = queryString.substring(1);
+      var answer = queryString.split("=");
+      number = Number(answer[1]);
+      function go(){
+        window.location.href = '/'
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class='namebox'>
+      <h3 class='question-text'>
+        당신은 "임천택"입니다!
+      </h3>
+    </div>
+    <img src="../static/임천택.png">
+
+    <div class='namebox'>
+      <h3 class='question-text'>
+        <script>
+          document.write("유사도 점수: "+ number+"점");
+        </script>
+      </h3>
+    </div>
+
+    <button class="button" style="vertical-align:middle" onclick=go()>
+      <span>다시하기</span>
+    </button>
+  </body>
+</html>
